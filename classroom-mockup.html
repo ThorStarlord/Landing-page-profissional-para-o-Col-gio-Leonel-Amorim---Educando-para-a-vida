@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup Sala de Aula - Colégio Leonel Amorim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amarelo: #FFC107;
+            --azul: #0066CC;
+            --bordô: #8B1538;
+            --laranja: #FF6B35;
+            --cinza-escuro: #1A1A1A;
+            --cinza-medio: #666666;
+            --cinza-claro: #F8F9FA;
+            --branco: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .specs {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .specs h3 {
+            color: var(--bordô);
+            margin-bottom: 10px;
+        }
+
+        .specs p {
+            color: var(--cinza-medio);
+            margin: 5px 0;
+        }
+
+        .view-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .view-btn {
+            background: white;
+            color: var(--azul);
+            border: 3px solid var(--azul);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .view-btn:hover {
+            background: var(--azul);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,102,204,0.4);
+        }
+
+        .view-btn.active {
+            background: var(--bordô);
+            border-color: var(--bordô);
+            color: white;
+        }
+
+        .classroom-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        /* Floor Plan View */
+        .floor-plan {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 7/6;
+            position: relative;
+            background: #f5f5f5;
+            border: 3px solid var(--cinza-escuro);
+        }
+
+        .wall {
+            position: absolute;
+            background: var(--cinza-claro);
+            border: 2px solid var(--cinza-medio);
+        }
+
+        .wall-top {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+        }
+
+        .wall-bottom {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+        }
+
+        .wall-left {
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 100%;
+        }
+
+        .wall-right {
+            right: 0;
+            top: 0;
+            width: 40px;
+            height: 100%;
+        }
+
+        .door-plan {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 8px;
+            background: var(--bordô);
+            border-radius: 4px;
+        }
+
+        .window-plan {
+            position: absolute;
+            top: 40px;
+            width: 60px;
+            height: 8px;
+            background: var(--azul);
+            border-radius: 4px;
+        }
+
+        .window-plan:nth-of-type(1) {
+            left: 15%;
+        }
+
+        .window-plan:nth-of-type(2) {
+            left: 45%;
+        }
+
+        .window-plan:nth-of-type(3) {
+            right: 15%;
+        }
+
+        /* 3D Front View */
+        .front-view {
+            width: 100%;
+            max-width: 1200px;
+            height: 700px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+            border: 3px solid var(--cinza-escuro);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Walls */
+        .front-wall {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fafafa 0%, #e8e8e8 100%);
+        }
+
+        /* Door */
+        .door-container {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 400px;
+        }
+
+        .door {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #6B4423 0%, #4A2F17 100%);
+            border: 3px solid #3D2511;
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .door-sign {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 200px;
+            background: var(--bordô);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            padding: 15px;
+        }
+
+        .door-sign-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--amarelo) 0%, var(--laranja) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .door-sign h3 {
+            color: white;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .door-sign-divider {
+            width: 80%;
+            height: 2px;
+            background: var(--amarelo);
+            margin: 5px 0;
+        }
+
+        .door-sign p {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 5px 0;
+        }
+
+        .door-sign .teacher {
+            color: var(--amarelo);
+            font-size: 0.7rem;
+            margin-top: 8px;
+        }
+
+        .door-handle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 60px;
+            background: gold;
+            border-radius: 7px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Windows */
+        .window {
+            position: absolute;
+            top: 80px;
+            width: 250px;
+            height: 200px;
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+            border: 5px solid #2C5F8D;
+            border-radius: 10px;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.5), 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .window-cross {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #2C5F8D;
+            transform: translateY(-50%);
+        }
+
+        .window-cross-vertical {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: #2C5F8D;
+            transform: translateX(-50%);
+        }
+
+        .window:nth-of-type(1) {
+            left: 8%;
+        }
+
+        .window:nth-of-type(2) {
+            left: 38%;
+        }
+
+        .window:nth-of-type(3) {
+            right: 8%;
+        }
+
+        /* Whiteboard */
+        .whiteboard {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: white;
+            border: 8px solid var(--azul);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .whiteboard-content {
+            text-align: center;
+            color: var(--azul);
+        }
+
+        .whiteboard-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .whiteboard h2 {
+            font-size: 2rem;
+            color: var(--bordô);
+            margin-bottom: 10px;
+        }
+
+        .whiteboard p {
+            font-style: italic;
+            color: var(--azul);
+            font-size: 1.2rem;
+        }
+
+        /* Side View */
+        .side-view {
+            width: 100%;
+            max-width: 1200px;
+            height: 700px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+            border: 3px solid var(--cinza-escuro);
+            border-radius: 10px;
+        }
+
+        /* Desks */
+        .desks-grid {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            width: 90%;
+        }
+
+        .desk {
+            background: linear-gradient(135deg, #D2691E 0%, #A0522D 100%);
+            border: 2px solid #654321;
+            border-radius: 5px;
+            height: 60px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .desk-label {
+            background: var(--azul);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Wall Decorations */
+        .wall-banner {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 120px;
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border: 5px solid var(--azul);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wall-banner h3 {
+            color: var(--amarelo);
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+
+        .wall-banner-divider {
+            width: 60%;
+            height: 3px;
+            background: var(--bordô);
+            margin: 10px 0;
+        }
+
+        .wall-banner p {
+            color: var(--azul);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Details View */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .detail-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid var(--cinza-claro);
+        }
+
+        .detail-card h3 {
+            color: var(--bordô);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 3px solid var(--amarelo);
+            padding-bottom: 10px;
+        }
+
+        .detail-card ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .detail-card li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--cinza-claro);
+            color: var(--cinza-medio);
+        }
+
+        .detail-card strong {
+            color: var(--azul);
+        }
+
+        /* Desk Sticker Preview */
+        .desk-sticker-preview {
+            width: 100%;
+            max-width: 400px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--azul) 0%, #0052A3 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 20px auto;
+        }
+
+        .desk-sticker-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--amarelo) 0%, var(--laranja) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .desk-sticker-info {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .desk-sticker-info h4 {
+            color: white;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .desk-sticker-divider {
+            width: 100%;
+            height: 2px;
+            background: var(--amarelo);
+            margin: 8px 0;
+        }
+
+        .desk-sticker-name {
+            color: var(--bordô);
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .desk-sticker-class {
+            color: var(--azul);
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        /* Legend */
+        .legend {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 2px solid var(--cinza-claro);
+        }
+
+        .legend h4 {
+            color: var(--bordô);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 0.9rem;
+            color: var(--cinza-medio);
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            border: 2px solid var(--cinza-medio);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .front-view,
+            .side-view {
+                height: 500px;
+            }
+
+            .whiteboard {
+                width: 80%;
+                height: 200px;
+            }
+
+            .whiteboard h2 {
+                font-size: 1.2rem;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏫 Mockup Sala de Aula</h1>
+        <p class="subtitle">Colégio Leonel Amorim - Identidade Visual Aplicada</p>
+
+        <div class="specs">
+            <h3>📐 Especificações da Sala</h3>
+            <p><strong>Dimensões:</strong> 7 metros (largura) x 6 metros (profundidade)</p>
+            <p><strong>Área Total:</strong> 42m²</p>
+            <p><strong>Capacidade:</strong> 30-35 alunos</p>
+            <p><strong>Abertura:</strong> 1 porta (entrada) + 3 janelas (parede frontal)</p>
+        </div>
+
+        <div class="view-controls">
+            <button class="view-btn active" onclick="showView('plan')">📋 Planta Baixa</button>
+            <button class="view-btn" onclick="showView('front')">🚪 Vista Frontal</button>
+            <button class="view-btn" onclick="showView('side')">👥 Vista Lateral</button>
+            <button class="view-btn" onclick="showView('details')">🎨 Detalhes</button>
+        </div>
+
+        <div class="classroom-container">
+            <!-- Floor Plan View -->
+            <div class="view-section active" id="plan-view">
+                <h2 style="text-align: center; color: var(--bordô); margin-bottom: 20px;">📋 Planta Baixa (7m x 6m)</h2>
+                <div class="floor-plan">
+                    <div class="wall wall-top"></div>
+                    <div class="wall wall-bottom"></div>
+                    <div class="wall wall-left"></div>
+                    <div class="wall wall-right"></div>
+                    
+                    <!-- Windows -->
+                    <div class="window-plan" style="left: 15%;"></div>
+                    <div class="window-plan" style="left: 42%;"></div>
+                    <div class="window-plan" style="left: 69%;"></div>
+                    
+                    <!-- Door -->
+                    <div class="door-plan"></div>
+                    
+                    <!-- Labels -->
+                    <div style="position: absolute; top: 60px; left: 15%; color: var(--azul); font-size: 0.8rem; font-weight: 600;">Janela 1</div>
+                    <div style="position: absolute; top: 60px; left: 42%; color: var(--azul); font-size: 0.8rem; font-weight: 600;">Janela 2</div>
+                    <div style="position: absolute; top: 60px; left: 69%; color: var(--azul); font-size: 0.8rem; font-weight: 600;">Janela 3</div>
+                    <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); color: var(--bordô); font-size: 0.8rem; font-weight: 600;">Porta de Entrada</div>
+                    
+                    <!-- Whiteboard -->
+                    <div style="position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); width: 200px; height: 80px; background: white; border: 3px solid var(--azul); border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: var(--azul); font-size: 0.7rem; font-weight: 600;">QUADRO BRANCO</span>
+                    </div>
+                    
+                    <!-- Desks Grid -->
+                    <div style="position: absolute; bottom: 240px; left: 50%; transform: translateX(-50%); display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; width: 70%;">
+                        <div style="background: #D2691E; border: 1px solid #654321; border-radius: 3px; height: 30px;"></div>
+                        <div style="background: #D2691E; border: 1px solid #654321; border-radius: 3px; height: 30px;"></div>
+                        <div style="background: #D2691E; border: 1px solid #654321; border-radius: 3px; height: 30px;"></div>
+                        <div style="background: #D2691E; border: 1px solid #654321; border-radius: 3px; height: 30px;"></div>
+                        <div style="background: #D2691E; border: 1px solid #654321; border-radius: 3px; height: 30px;"></div>
+                    </div>
+                    
+                    <!-- Teacher Desk -->
+                    <div style="position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); width: 80px; height: 40px; background: var(--bordô); border: 2px solid #6B0F28; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 0.6rem; font-weight: 600;">PROFESSOR</span>
+                    </div>
+                    
+                    <!-- Dimensions -->
+                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); color: var(--cinza-escuro); font-size: 0.9rem; font-weight: 700;">← 7 metros →</div>
+                    <div style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: var(--cinza-escuro); font-size: 0.9rem; font-weight: 700;">← 6 metros →</div>
+                </div>
+                
+                <div class="legend">
+                    <h4>📌 Legenda</h4>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--azul);"></div>
+                        <span>Janelas (3 unidades) - Parede frontal com iluminação natural</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--bordô);"></div>
+                        <span>Porta de Entrada - Parede posterior com placa de identificação</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: white; border-color: var(--azul);"></div>
+                        <span>Quadro Branco - Logo e branding aplicados</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #D2691E;"></div>
+                        <span>Carteiras dos Alunos - Adesivos de identificação personalizados</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Front View -->
+            <div class="view-section" id="front-view">
+                <h2 style="text-align: center; color: var(--bordô); margin-bottom: 20px;">🚪 Vista Frontal da Sala</h2>
+                <div class="front-view">
+                    <div class="front-wall"></div>
+                    
+                    <!-- Windows -->
+                    <div class="window">
+                        <div class="window-cross"></div>
+                        <div class="window-cross-vertical"></div>
+                    </div>
+                    <div class="window">
+                        <div class="window-cross"></div>
+                        <div class="window-cross-vertical"></div>
+                    </div>
+                    <div class="window">
+                        <div class="window-cross"></div>
+                        <div class="window-cross-vertical"></div>
+                    </div>
+                    
+                    <!-- Whiteboard -->
+                    <div class="whiteboard">
+                        <div class="whiteboard-content">
+                            <div class="whiteboard-logo">📚🔥</div>
+                            <h2>COLÉGIO LEONEL AMORIM</h2>
+                            <p>Educando para a Vida</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Door -->
+                    <div class="door-container">
+                        <div class="door">
+                            <div class="door-sign">
+                                <div class="door-sign-logo">📚</div>
+                                <h3>COLÉGIO LEONEL AMORIM</h3>
+                                <div class="door-sign-divider"></div>
+                                <p>SALA 201</p>
+                                <p style="font-size: 1.2rem; color: var(--amarelo);">7º Ano - Turma A</p>
+                                <p class="teacher">Prof. Maria Silva</p>
+                            </div>
+                            <div class="door-handle"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="legend">
+                    <h4>🎨 Elementos de Identidade Visual Aplicados</h4>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--bordô);"></div>
+                        <span><strong>Placa da Porta:</strong> Fundo Bordô #8B1538 (Tradição e Elegância)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--amarelo);"></div>
+                        <span><strong>Destaques:</strong> Amarelo #FFC107 (Dividers e textos importantes)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: var(--azul);"></div>
+                        <span><strong>Quadro Branco:</strong> Moldura Azul #0066CC (Profissionalismo)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);"></div>
+                        <span><strong>Logo:</strong> Gradiente Bordô → Azul (Marca institucional)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side View -->
+            <div class="view-section" id="side-view">
+                <h2 style="text-align: center; color: var(--bordô); margin-bottom: 20px;">👥 Vista Lateral com Carteiras</h2>
+                <div class="side-view">
+                    <!-- Wall Banner -->
+                    <div class="wall-banner">
+                        <h3>"Educando para a Vida"</h3>
+                        <div class="wall-banner-divider"></div>
+                        <p>"O conhecimento é a chama que ilumina o caminho do futuro"</p>
+                    </div>
+                    
+                    <!-- Desks Grid -->
+                    <div class="desks-grid">
+                        <div class="desk"><div class="desk-label">ALUNO 1</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 2</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 3</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 4</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 5</div></div>
+                        
+                        <div class="desk"><div class="desk-label">ALUNO 6</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 7</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 8</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 9</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 10</div></div>
+                        
+                        <div class="desk"><div class="desk-label">ALUNO 11</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 12</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 13</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 14</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 15</div></div>
+                        
+                        <div class="desk"><div class="desk-label">ALUNO 16</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 17</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 18</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 19</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 20</div></div>
+                        
+                        <div class="desk"><div class="desk-label">ALUNO 21</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 22</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 23</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 24</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 25</div></div>
+                        
+                        <div class="desk"><div class="desk-label">ALUNO 26</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 27</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 28</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 29</div></div>
+                        <div class="desk"><div class="desk-label">ALUNO 30</div></div>
+                    </div>
+                </div>
+                
+                <div class="legend">
+                    <h4>📊 Distribuição da Sala</h4>
+                    <div class="legend-item">
+                        <span><strong>Capacidade Total:</strong> 30 alunos em 6 fileiras de 5 carteiras</span>
+                    </div>
+                    <div class="legend-item">
+                        <span><strong>Espaçamento:</strong> 15cm entre carteiras para mobilidade</span>
+                    </div>
+                    <div class="legend-item">
+                        <span><strong>Banner Inspiracional:</strong> Fundo azul claro com mensagem motivacional</span>
+                    </div>
+                    <div class="legend-item">
+                        <span><strong>Adesivos:</strong> Cada carteira possui etiqueta de identificação personalizada</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details View -->
+            <div class="view-section" id="details-view">
+                <h2 style="text-align: center; color: var(--bordô); margin-bottom: 30px;">🎨 Detalhes dos Elementos</h2>
+                
+                <div class="details-grid">
+                    <!-- Door Sign -->
+                    <div class="detail-card">
+                        <h3>🚪 Placa de Porta</h3>
+                        <ul>
+                            <li><strong>Tamanho:</strong> 30cm x 20cm</li>
+                            <li><strong>Material:</strong> Acrílico 3mm ou ACM</li>
+                            <li><strong>Fundo:</strong> Bordô #8B1538</li>
+                            <li><strong>Logo:</strong> Centralizado (amarelo/laranja)</li>
+                            <li><strong>Título:</strong> Branco Poppins Bold 48pt</li>
+                            <li><strong>Número da Sala:</strong> Branco Bold</li>
+                            <li><strong>Turma:</strong> Amarelo #FFC107</li>
+                            <li><strong>Professor:</strong> Amarelo Regular 16pt</li>
+                            <li><strong>Divider:</strong> Linha amarela 2px</li>
+                        </ul>
+                    </div>
+
+                    <!-- Desk Stickers -->
+                    <div class="detail-card">
+                        <h3>📋 Adesivo de Carteira</h3>
+                        <div class="desk-sticker-preview">
+                            <div class="desk-sticker-logo">📚</div>
+                            <div class="desk-sticker-info">
+                                <h4>COLÉGIO LEONEL AMORIM</h4>
+                                <div class="desk-sticker-divider"></div>
+                                <div class="desk-sticker-name">JOÃO SILVA</div>
+                                <div class="desk-sticker-class">7º Ano - Turma A</div>
+                            </div>
+                        </div>
+                        <ul style="margin-top: 15px;">
+                            <li><strong>Tamanho:</strong> 15cm x 8cm</li>
+                            <li><strong>Material:</strong> Vinil adesivo removível</li>
+                            <li><strong>Fundo:</strong> Azul #0066CC</li>
+                            <li><strong>Nome do Aluno:</strong> Bordô sobre branco</li>
+                            <li><strong>Turma:</strong> Azul sobre branco</li>
+                        </ul>
+                    </div>
+
+                    <!-- Banner -->
+                    <div class="detail-card">
+                        <h3>🎯 Banner de Parede</h3>
+                        <ul>
+                            <li><strong>Tamanho:</strong> 90cm x 60cm</li>
+                            <li><strong>Material:</strong> Lona ou Banner vinílico</li>
+                            <li><strong>Fundo:</strong> Gradiente Branco → Azul claro</li>
+                            <li><strong>Título:</strong> Amarelo #FFC107 Script 36pt</li>
+                            <li><strong>Divider:</strong> Bordô #8B1538 linha 3px</li>
+                            <li><strong>Frase:</strong> Azul #0066CC Light 20pt</li>
+                            <li><strong>Logo:</strong> Mini versão no rodapé</li>
+                            <li><strong>Mensagem:</strong> "O conhecimento é a chama..."</li>
+                        </ul>
+                    </div>
+
+                    <!-- Whiteboard -->
+                    <div class="detail-card">
+                        <h3>📝 Quadro Branco</h3>
+                        <ul>
+                            <li><strong>Tamanho:</strong> 3,00m x 1,20m</li>
+                            <li><strong>Material:</strong> Melamina branca</li>
+                            <li><strong>Moldura:</strong> Azul #0066CC 8cm largura</li>
+                            <li><strong>Logo:</strong> Adesivo 80x80cm (canto superior)</li>
+                            <li><strong>Nome da Escola:</strong> Adesivo em vinil</li>
+                            <li><strong>Slogan:</strong> "Educando para a Vida"</li>
+                            <li><strong>Suporte:</strong> Para apagador e marcadores</li>
+                            <li><strong>Acabamento:</strong> Cantos arredondados</li>
+                        </ul>
+                    </div>
+
+                    <!-- Windows -->
+                    <div class="detail-card">
+                        <h3>🪟 Janelas</h3>
+                        <ul>
+                            <li><strong>Quantidade:</strong> 3 unidades</li>
+                            <li><strong>Dimensões:</strong> 1,50m x 1,20m cada</li>
+                            <li><strong>Tipo:</strong> Basculante com vidro</li>
+                            <li><strong>Moldura:</strong> Alumínio branco</li>
+                            <li><strong>Cortinas:</strong> Persiana branca</li>
+                            <li><strong>Distribuição:</strong> Parede frontal espaçadas</li>
+                            <li><strong>Iluminação:</strong> Natural + LED</li>
+                            <li><strong>Ventilação:</strong> Sistema de abertura superior</li>
+                        </ul>
+                    </div>
+
+                    <!-- Door -->
+                    <div class="detail-card">
+                        <h3>🚪 Porta de Entrada</h3>
+                        <ul>
+                            <li><strong>Dimensões:</strong> 0,90m x 2,10m</li>
+                            <li><strong>Material:</strong> Madeira maciça envernizada</li>
+                            <li><strong>Cor:</strong> Marrom escuro (6B4423)</li>
+                            <li><strong>Visor:</strong> Vidro 30x40cm (parte superior)</li>
+                            <li><strong>Fechadura:</strong> Maçaneta dourada</li>
+                            <li><strong>Placa:</strong> Acrílico fixado com parafusos</li>
+                            <li><strong>Localização:</strong> Parede posterior central</li>
+                            <li><strong>Abertura:</strong> Para dentro da sala</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; background: linear-gradient(135deg, var(--amarelo) 0%, var(--laranja) 100%); padding: 30px; border-radius: 15px; text-align: center;">
+                    <h3 style="color: white; font-size: 1.8rem; margin-bottom: 15px;">💰 Investimento Total para Identidade Visual da Sala</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <div style="background: white; padding: 15px; border-radius: 10px;">
+                            <p style="color: var(--bordô); font-weight: 700; margin-bottom: 5px;">Placa de Porta</p>
+                            <p style="color: var(--cinza-escuro); font-size: 1.3rem; font-weight: 700;">R$ 35,00</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px;">
+                            <p style="color: var(--bordô); font-weight: 700; margin-bottom: 5px;">30 Adesivos Carteira</p>
+                            <p style="color: var(--cinza-escuro); font-size: 1.3rem; font-weight: 700;">R$ 24,00</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px;">
+                            <p style="color: var(--bordô); font-weight: 700; margin-bottom: 5px;">Banner de Parede</p>
+                            <p style="color: var(--cinza-escuro); font-size: 1.3rem; font-weight: 700;">R$ 80,00</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 10px;">
+                            <p style="color: var(--bordô); font-weight: 700; margin-bottom: 5px;">Adesivos Quadro</p>
+                            <p style="color: var(--cinza-escuro); font-size: 1.3rem; font-weight: 700;">R$ 45,00</p>
+                        </div>
+                    </div>
+                    <div style="background: var(--bordô); margin-top: 20px; padding: 20px; border-radius: 10px;">
+                        <p style="color: white; font-size: 1.1rem; margin-bottom: 5px;">TOTAL POR SALA</p>
+                        <p style="color: var(--amarelo); font-size: 2.5rem; font-weight: 700;">R$ 184,00</p>
+                        <p style="color: white; opacity: 0.9; font-size: 0.9rem; margin-top: 10px;">Custo para identidade visual completa de uma sala de aula</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: white; margin-top: 3rem; padding: 2rem;">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">🎓 Colégio Leonel Amorim</h3>
+            <p style="font-style: italic; font-size: 1.2rem; opacity: 0.9;">Educando para a Vida</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Ambiente preparado para o aprendizado excelente 💙💛🔴</p>
+        </div>
+    </div>
+
+    <script>
+        function showView(viewName) {
+            // Hide all views
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected view
+            document.getElementById(viewName + '-view').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
