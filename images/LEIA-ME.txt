@@ -1,0 +1,35 @@
+# INSTRUÇÕES PARA ADICIONAR O LOGO
+
+## Passo a Passo:
+
+1. Salve a imagem do logo como "logo.png" nesta pasta (images/)
+   
+2. Depois de salvar o logo, execute estes comandos no PowerShell:
+
+```powershell
+# Navegue até a pasta do projeto
+cd C:\colegio-leonel-amorim
+
+# Adicione o logo ao Git
+git add images/logo.png
+
+# Faça o commit
+git commit -m "add: Logo oficial do Colégio Leonel Amorim"
+
+# Envie para o GitHub
+git push
+```
+
+## Ou execute tudo de uma vez:
+
+```powershell
+cd C:\colegio-leonel-amorim; git add images/logo.png; git commit -m "add: Logo oficial do Colégio Leonel Amorim"; git push
+```
+
+## Verificar se o logo está correto:
+
+Abra o arquivo index.html no navegador e verifique se o logo aparece no navbar.
+
+---
+
+IMPORTANTE: Certifique-se de que o arquivo está nomeado exatamente como "logo.png" (minúsculas)
