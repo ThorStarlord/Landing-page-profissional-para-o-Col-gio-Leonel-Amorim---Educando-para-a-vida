@@ -387,11 +387,11 @@ body {
 }
 
 .nivel-image.fundamental {
-    background: linear-gradient(135deg, #0047AB 0%, #003380 100%);
+    background: linear-gradient(135deg, #8B1538 0%, #6B1028 100%);
 }
 
 .nivel-image.medio {
-    background: linear-gradient(135deg, #003380 0%, #001a4d 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #0052A3 100%);
 }
 
 .nivel-content {
