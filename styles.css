@@ -6,19 +6,27 @@
 }
 
 :root {
-    --primary-color: #0047AB;
-    --secondary-color: #FFD700;
-    --accent-color: #0047AB;
+    /* Brand Colors - Colégio Leonel Amorim */
+    --primary-color: #0066CC;
+    --secondary-color: #FFC107;
+    --burgundy: #8B1538;
+    --accent-color: #FF6B35;
     --success-color: #27ae60;
     --text-dark: #1a1a1a;
     --text-light: #666666;
     --background-light: #f8f9fa;
     --white: #ffffff;
-    --gradient-primary: linear-gradient(135deg, #0047AB 0%, #003380 100%);
-    --gradient-secondary: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
-    --shadow-sm: 0 2px 4px rgba(0,71,171,0.1);
-    --shadow-md: 0 4px 6px rgba(0,71,171,0.15);
-    --shadow-lg: 0 10px 25px rgba(0,71,171,0.2);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+    --gradient-secondary: linear-gradient(135deg, #FFC107 0%, #FFD700 100%);
+    --gradient-burgundy: linear-gradient(135deg, #8B1538 0%, #A0293E 100%);
+    --gradient-hero: linear-gradient(135deg, #8B1538 0%, #0066CC 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(139,21,56,0.1);
+    --shadow-md: 0 4px 6px rgba(139,21,56,0.15);
+    --shadow-lg: 0 10px 25px rgba(139,21,56,0.2);
 }
 
 body {
@@ -97,8 +105,8 @@ body {
 }
 
 .btn-nav {
-    background: #FFD700;
-    color: #0047AB !important;
+    background: var(--secondary-color);
+    color: var(--burgundy) !important;
     padding: 0.6rem 1.5rem;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -106,7 +114,8 @@ body {
 }
 
 .btn-nav:hover {
-    background: #FFC700;
+    background: var(--burgundy);
+    color: var(--white) !important;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -130,7 +139,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #0047AB 0%, #003380 100%);
+    background: var(--gradient-hero);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -197,15 +206,16 @@ body {
 }
 
 .btn-primary {
-    background: #FFD700;
-    color: #0047AB;
+    background: var(--secondary-color);
+    color: var(--burgundy);
     font-weight: 600;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255,215,0,0.4);
-    background: #FFC700;
+    box-shadow: 0 10px 20px rgba(255,193,7,0.4);
+    background: var(--burgundy);
+    color: var(--white);
 }
 
 .btn-secondary {
@@ -216,19 +226,20 @@ body {
 
 .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-color);
+    color: var(--burgundy);
 }
 
 .btn-outline {
     background: transparent;
-    color: #0047AB;
-    border: 2px solid #0047AB;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     padding: 0.7rem 1.5rem;
 }
 
 .btn-outline:hover {
-    background: #0047AB;
-    color: #FFD700;
+    background: var(--burgundy);
+    color: var(--secondary-color);
+    border-color: var(--burgundy);
     font-weight: 600;
 }
 
