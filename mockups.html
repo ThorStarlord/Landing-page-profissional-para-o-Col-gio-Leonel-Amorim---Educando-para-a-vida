@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockups - Colégio Leonel Amorim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amarelo: #FFC107;
+            --azul: #0066CC;
+            --bordô: #8B1538;
+            --laranja: #FF6B35;
+            --cinza-escuro: #1A1A1A;
+            --cinza-medio: #666666;
+            --cinza-claro: #F8F9FA;
+            --branco: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .mockup-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .mockup-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mockup-title {
+            font-size: 1.8rem;
+            color: var(--bordô);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid var(--amarelo);
+            padding-bottom: 10px;
+        }
+
+        /* Letterhead Mockup */
+        .letterhead {
+            background: white;
+            width: 100%;
+            aspect-ratio: 210/297; /* A4 proportion */
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .letterhead-header {
+            padding: 20px 30px;
+            border-bottom: 3px solid var(--bordô);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .letterhead-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .letterhead-info h2 {
+            color: var(--azul);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .letterhead-info p {
+            color: var(--bordô);
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+
+        .letterhead-content {
+            flex: 1;
+            padding: 30px;
+            color: var(--cinza-escuro);
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .letterhead-footer {
+            padding: 15px 30px;
+            border-top: 3px solid var(--azul);
+            background: var(--cinza-claro);
+            font-size: 0.65rem;
+            color: var(--cinza-medio);
+        }
+
+        /* T-Shirt Mockup */
+        .tshirt-container {
+            position: relative;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .tshirt {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .tshirt.white {
+            background: white;
+        }
+
+        .tshirt.burgundy {
+            background: var(--bordô);
+        }
+
+        .tshirt.navy {
+            background: #003366;
+        }
+
+        .tshirt-front {
+            position: absolute;
+            top: 60px;
+            left: 50px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .tshirt-back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .tshirt-back.white-text {
+            color: white;
+        }
+
+        .tshirt-back.dark-text {
+            color: var(--bordô);
+        }
+
+        .tshirt-back h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tshirt-back p {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tshirt-back .year {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .tshirt-color-options {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .color-btn:hover,
+        .color-btn.active {
+            border-color: var(--amarelo);
+            transform: scale(1.1);
+        }
+
+        .color-btn.white-btn {
+            background: white;
+            border: 3px solid #ddd;
+        }
+
+        .color-btn.burgundy-btn {
+            background: var(--bordô);
+        }
+
+        .color-btn.navy-btn {
+            background: #003366;
+        }
+
+        /* Souvenirs Grid */
+        .souvenirs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .souvenir-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .souvenir-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .souvenir-item h4 {
+            color: var(--azul);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Pen */
+        .pen {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .pen-body {
+            width: 80%;
+            height: 30px;
+            margin: 0 auto;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .pen-body.burgundy {
+            background: linear-gradient(90deg, var(--bordô) 0%, #6B0F28 100%);
+        }
+
+        .pen-body.blue {
+            background: linear-gradient(90deg, var(--azul) 0%, #0052A3 100%);
+        }
+
+        .pen-body.yellow {
+            background: linear-gradient(90deg, var(--amarelo) 0%, #FFB300 100%);
+        }
+
+        .pen-clip {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            width: 8px;
+            height: 40px;
+            background: gold;
+            border-radius: 4px;
+        }
+
+        .pen-tip {
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid var(--amarelo);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .pen-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Agenda */
+        .agenda {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .agenda-logo {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .agenda-title {
+            color: white;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .agenda-subtitle {
+            color: white;
+            text-align: center;
+            font-size: 0.7rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .agenda-divider {
+            height: 2px;
+            background: var(--amarelo);
+            margin: 10px 0;
+        }
+
+        .agenda-year {
+            color: white;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Mochila */
+        .backpack {
+            width: 100%;
+            height: 200px;
+            background: #003366;
+            border-radius: 20px 20px 40px 40px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .backpack-logo {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .backpack-stripe {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: var(--amarelo);
+        }
+
+        .backpack-text {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .backpack-straps {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .strap {
+            width: 15px;
+            height: 60px;
+            background: var(--bordô);
+            border-radius: 7px;
+        }
+
+        /* Squeeze */
+        .squeeze {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .squeeze-body {
+            width: 80px;
+            height: 150px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .squeeze-cap {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 20px;
+            background: var(--bordô);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .squeeze-logo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .squeeze-stripe {
+            position: absolute;
+            top: 70px;
+            width: 100%;
+            height: 3px;
+            background: var(--amarelo);
+        }
+
+        .squeeze-text {
+            position: absolute;
+            top: 80px;
+            width: 100%;
+            text-align: center;
+            color: var(--azul);
+            font-size: 0.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Mousepad */
+        .mousepad {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .mousepad-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .mousepad-title {
+            color: var(--azul);
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .mousepad-subtitle {
+            color: var(--bordô);
+            font-size: 0.5rem;
+            font-style: italic;
+        }
+
+        .mousepad-divider {
+            height: 2px;
+            background: var(--amarelo);
+            margin: 10px 0;
+        }
+
+        .mousepad-pattern {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .souvenirs-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Mockups de Materiais</h1>
+        <p class="subtitle">Colégio Leonel Amorim - Identidade Visual Aplicada</p>
+
+        <!-- Letterhead Mockup -->
+        <div class="mockup-grid">
+            <div class="mockup-card">
+                <h2 class="mockup-title">📄 Papel Timbrado</h2>
+                <div class="letterhead">
+                    <div class="letterhead-header">
+                        <div class="letterhead-logo">📚🔥</div>
+                        <div class="letterhead-info">
+                            <h2>COLÉGIO LEONEL AMORIM</h2>
+                            <p>Educando para a Vida</p>
+                        </div>
+                    </div>
+                    <div class="letterhead-content">
+                        <p style="margin-bottom: 1rem;"><strong>Data:</strong> 6 de outubro de 2025</p>
+                        <p style="margin-bottom: 1rem;"><strong>Para:</strong> Pais e Responsáveis</p>
+                        <p style="margin-bottom: 1rem;"><strong>Assunto:</strong> Campanha de Matrículas 2026</p>
+                        
+                        <p style="margin-bottom: 1rem;">
+                            Prezados Pais e Responsáveis,
+                        </p>
+                        
+                        <p style="margin-bottom: 1rem;">
+                            É com grande satisfação que anunciamos o início da nossa Campanha de Matrículas para o ano letivo de 2026. O Colégio Leonel Amorim, com sua tradição de excelência em educação, oferece uma jornada completa desde a Educação Infantil até o Ensino Médio.
+                        </p>
+                        
+                        <p style="margin-bottom: 1rem;">
+                            Nossa metodologia ativa, aliada às mais modernas tecnologias digitais, prepara os estudantes não apenas para os desafios acadêmicos, mas também para a vida em sociedade.
+                        </p>
+                        
+                        <p style="margin-bottom: 1rem;">
+                            <strong>Benefícios exclusivos para matrículas antecipadas:</strong>
+                        </p>
+                        <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                            <li>15% de desconto na matrícula</li>
+                            <li>Kit escolar completo de boas-vindas</li>
+                            <li>Agenda escolar personalizada</li>
+                            <li>Acesso antecipado aos portais educacionais</li>
+                        </ul>
+                        
+                        <p style="margin-bottom: 1rem;">
+                            Agende uma visita e conheça nossa estrutura!
+                        </p>
+                        
+                        <p style="margin-top: 2rem;">
+                            Atenciosamente,<br>
+                            <strong>Direção Pedagógica</strong><br>
+                            Colégio Leonel Amorim
+                        </p>
+                    </div>
+                    <div class="letterhead-footer">
+                        <p>📍 Rua Exemplo, 123 - Centro | 📞 (00) 0000-0000 | 📧 contato@colegioleonelamorim.com.br</p>
+                        <p>🌐 www.colegioleonelamorim.com.br</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T-Shirt Mockup -->
+            <div class="mockup-card">
+                <h2 class="mockup-title">👕 Camiseta Escolar</h2>
+                <div class="tshirt-container">
+                    <div class="tshirt white" id="tshirt">
+                        <!-- Front View -->
+                        <div class="tshirt-front">
+                            <div style="font-size: 1.5rem;">📚🔥</div>
+                            <div style="font-size: 0.5rem; margin-top: 5px;">LEONEL<br>AMORIM</div>
+                        </div>
+                        
+                        <!-- Back View -->
+                        <div class="tshirt-back dark-text" id="tshirt-back">
+                            <h3>COLÉGIO LEONEL AMORIM</h3>
+                            <div style="width: 200px; height: 2px; background: var(--amarelo); margin: 10px auto;"></div>
+                            <p>Educando para a Vida</p>
+                            <p class="year">2026</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tshirt-color-options">
+                        <button class="color-btn white-btn active" onclick="changeTshirtColor('white')"></button>
+                        <button class="color-btn burgundy-btn" onclick="changeTshirtColor('burgundy')"></button>
+                        <button class="color-btn navy-btn" onclick="changeTshirtColor('navy')"></button>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px; color: var(--cinza-medio); font-size: 0.9rem;">
+                        Clique nas cores para visualizar
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Souvenirs Grid -->
+        <div class="mockup-card">
+            <h2 class="mockup-title">🎁 Brindes e Souvenirs</h2>
+            <div class="souvenirs-grid">
+                <!-- Pen Burgundy -->
+                <div class="souvenir-item">
+                    <h4>Caneta Bordô</h4>
+                    <div class="pen">
+                        <div class="pen-body burgundy">
+                            <div class="pen-clip"></div>
+                            <div class="pen-tip"></div>
+                            <div class="pen-text">Colégio Leonel Amorim</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio);">
+                        Corpo Bordô | Clip Dourado | Ponta Amarela
+                    </p>
+                </div>
+
+                <!-- Pen Blue -->
+                <div class="souvenir-item">
+                    <h4>Caneta Azul</h4>
+                    <div class="pen">
+                        <div class="pen-body blue">
+                            <div class="pen-clip" style="background: silver;"></div>
+                            <div class="pen-tip"></div>
+                            <div class="pen-text">Educando para a Vida</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio);">
+                        Corpo Azul | Clip Prateado | Ponta Amarela
+                    </p>
+                </div>
+
+                <!-- Pen Yellow -->
+                <div class="souvenir-item">
+                    <h4>Caneta Amarela</h4>
+                    <div class="pen">
+                        <div class="pen-body yellow">
+                            <div class="pen-clip" style="background: var(--bordô);"></div>
+                            <div class="pen-tip" style="border-left-color: var(--bordô);"></div>
+                            <div class="pen-text" style="color: var(--bordô);">www.escola.com.br</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio);">
+                        Corpo Amarelo | Clip Bordô | Ponta Bordô
+                    </p>
+                </div>
+
+                <!-- Agenda -->
+                <div class="souvenir-item">
+                    <h4>Agenda Escolar</h4>
+                    <div class="agenda">
+                        <div class="agenda-logo">📚🔥</div>
+                        <p class="agenda-title">COLÉGIO LEONEL AMORIM</p>
+                        <p class="agenda-subtitle">Educando para a Vida</p>
+                        <div class="agenda-divider"></div>
+                        <p class="agenda-year">AGENDA ESCOLAR</p>
+                        <p class="agenda-year">2026</p>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio); margin-top: 10px;">
+                        A5 | Capa dura | UV localizado
+                    </p>
+                </div>
+
+                <!-- Backpack -->
+                <div class="souvenir-item">
+                    <h4>Mochila Escolar</h4>
+                    <div class="backpack">
+                        <div class="backpack-straps">
+                            <div class="strap"></div>
+                            <div class="strap"></div>
+                        </div>
+                        <div class="backpack-logo">📚🔥</div>
+                        <div class="backpack-stripe"></div>
+                        <p class="backpack-text">COLÉGIO LEONEL AMORIM</p>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio); margin-top: 10px;">
+                        40x30x15cm | Logo bordado relevo 3D
+                    </p>
+                </div>
+
+                <!-- Squeeze -->
+                <div class="souvenir-item">
+                    <h4>Squeeze/Garrafa</h4>
+                    <div class="squeeze">
+                        <div class="squeeze-body">
+                            <div class="squeeze-cap"></div>
+                            <div class="squeeze-logo">📚</div>
+                            <div class="squeeze-stripe"></div>
+                            <div class="squeeze-text">
+                                COLÉGIO<br>LEONEL<br>AMORIM<br>
+                                <span style="font-size: 0.4rem; color: var(--cinza-medio);">www.escola.com.br</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio);">
+                        500ml | Alumínio | Tampa Bordô
+                    </p>
+                </div>
+
+                <!-- Mousepad -->
+                <div class="souvenir-item">
+                    <h4>Mousepad</h4>
+                    <div class="mousepad">
+                        <div class="mousepad-logo">📚</div>
+                        <p class="mousepad-title">COLÉGIO LEONEL AMORIM</p>
+                        <p class="mousepad-subtitle">Educando para a Vida</p>
+                        <div class="mousepad-divider"></div>
+                        <div class="mousepad-pattern">📖✏️📐</div>
+                        <p style="font-size: 0.5rem; color: var(--cinza-medio); margin-top: 10px;">
+                            www.colegioleonelamorim.com.br
+                        </p>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio); margin-top: 10px;">
+                        22x18x3mm | Borracha antiderrapante
+                    </p>
+                </div>
+
+                <!-- Badge Student -->
+                <div class="souvenir-item">
+                    <h4>Crachá Estudante</h4>
+                    <div style="width: 100%; height: 120px; background: var(--bordô); border-radius: 10px; padding: 10px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <div style="width: 40px; height: 50px; background: rgba(255,255,255,0.3); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👤</div>
+                            <div style="flex: 1;">
+                                <p style="color: white; font-size: 0.6rem; font-weight: 600; margin-bottom: 3px;">COLÉGIO LEONEL AMORIM</p>
+                                <p style="color: rgba(255,255,255,0.8); font-size: 0.5rem; font-style: italic;">Educando para a Vida</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <p style="color: var(--amarelo); font-size: 0.7rem; font-weight: 700;">NOME DO ALUNO</p>
+                            <p style="color: white; font-size: 0.6rem;">Matrícula: 12345</p>
+                            <p style="color: white; font-size: 0.6rem;">Ensino Fundamental</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio); margin-top: 10px;">
+                        8,5x5,5cm | PVC | Fundo Bordô
+                    </p>
+                </div>
+
+                <!-- Badge Teacher -->
+                <div class="souvenir-item">
+                    <h4>Crachá Professor</h4>
+                    <div style="width: 100%; height: 120px; background: var(--azul); border-radius: 10px; padding: 10px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <div style="width: 40px; height: 50px; background: rgba(255,255,255,0.3); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👤</div>
+                            <div style="flex: 1;">
+                                <p style="color: white; font-size: 0.6rem; font-weight: 600; margin-bottom: 3px;">COLÉGIO LEONEL AMORIM</p>
+                                <p style="color: rgba(255,255,255,0.8); font-size: 0.5rem; font-style: italic;">Educando para a Vida</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <p style="color: var(--amarelo); font-size: 0.7rem; font-weight: 700;">PROF. NOME COMPLETO</p>
+                            <p style="color: white; font-size: 0.6rem;">Professor(a) de Matemática</p>
+                            <p style="color: white; font-size: 0.6rem;">📞 Ramal: 101</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--cinza-medio); margin-top: 10px;">
+                        8,5x5,5cm | PVC | Fundo Azul
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: white; margin-top: 3rem; padding: 2rem;">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">🎓 Colégio Leonel Amorim</h3>
+            <p style="font-style: italic; font-size: 1.2rem; opacity: 0.9;">Educando para a Vida</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Uma marca forte para uma educação forte 💙💛🔴</p>
+        </div>
+    </div>
+
+    <script>
+        function changeTshirtColor(color) {
+            const tshirt = document.getElementById('tshirt');
+            const tshirtBack = document.getElementById('tshirt-back');
+            const buttons = document.querySelectorAll('.color-btn');
+            
+            // Remove all color classes
+            tshirt.classList.remove('white', 'burgundy', 'navy');
+            tshirtBack.classList.remove('white-text', 'dark-text');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add new color class
+            tshirt.classList.add(color);
+            
+            // Set text color based on background
+            if (color === 'white') {
+                tshirtBack.classList.add('dark-text');
+                document.querySelector('.white-btn').classList.add('active');
+            } else {
+                tshirtBack.classList.add('white-text');
+                if (color === 'burgundy') {
+                    document.querySelector('.burgundy-btn').classList.add('active');
+                } else {
+                    document.querySelector('.navy-btn').classList.add('active');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

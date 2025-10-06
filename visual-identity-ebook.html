@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Identidade Visual - Colégio Leonel Amorim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amarelo: #FFC107;
+            --azul: #0066CC;
+            --bordô: #8B1538;
+            --laranja: #FF6B35;
+            --cinza-escuro: #1A1A1A;
+            --cinza-medio: #666666;
+            --cinza-claro: #F8F9FA;
+            --branco: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--cinza-escuro);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .ebook-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--branco);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cover Page */
+        .cover {
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            color: var(--branco);
+            padding: 100px 50px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cover .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--amarelo);
+        }
+
+        .cover .school-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .cover .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 50px;
+            border-bottom: 3px solid var(--cinza-claro);
+        }
+
+        .section:nth-child(even) {
+            background: var(--cinza-claro);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--bordô);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--amarelo);
+            padding-left: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            color: var(--azul);
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .color-card {
+            background: var(--branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .color-swatch {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .color-info {
+            padding: 1.5rem;
+        }
+
+        .color-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-codes {
+            background: var(--cinza-claro);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        .color-usage {
+            font-size: 0.95rem;
+            color: var(--cinza-medio);
+            font-style: italic;
+        }
+
+        /* Application Examples */
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: var(--branco);
+            border: 2px solid var(--cinza-claro);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-title {
+            font-size: 1.3rem;
+            color: var(--azul);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .example-specs {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .example-specs li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--cinza-claro);
+        }
+
+        .example-specs strong {
+            color: var(--bordô);
+        }
+
+        /* Typography Display */
+        .typo-sample {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--branco);
+            border-radius: 15px;
+            border: 2px solid var(--cinza-claro);
+        }
+
+        .typo-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bordô);
+            margin-bottom: 0.5rem;
+        }
+
+        .typo-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--azul);
+            margin-bottom: 0.5rem;
+        }
+
+        .typo-body {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--cinza-escuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .typo-italic {
+            font-style: italic;
+            color: var(--bordô);
+        }
+
+        /* Dos and Don'ts */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .rules-card {
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .do-card {
+            background: #e8f5e9;
+            border: 3px solid #4caf50;
+        }
+
+        .dont-card {
+            background: #ffebee;
+            border: 3px solid #f44336;
+        }
+
+        .rules-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rules-card ul {
+            list-style: none;
+        }
+
+        .rules-card li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .rules-card li:before {
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .do-card li:before {
+            content: "✅";
+        }
+
+        .dont-card li:before {
+            content: "❌";
+        }
+
+        /* Cost Table */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--branco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cost-table thead {
+            background: linear-gradient(135deg, var(--azul) 0%, var(--bordô) 100%);
+            color: var(--branco);
+        }
+
+        .cost-table th,
+        .cost-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .cost-table tbody tr:nth-child(even) {
+            background: var(--cinza-claro);
+        }
+
+        .cost-table tfoot {
+            background: var(--amarelo);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, var(--amarelo) 0%, var(--laranja) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            color: var(--cinza-escuro);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--bordô) 0%, var(--azul) 100%);
+            color: var(--branco);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .footer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Print Styles */
+        @media print {
+            .ebook-container {
+                box-shadow: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .color-grid,
+            .example-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ebook-container">
+        <!-- Cover Page -->
+        <section class="cover">
+            <h1>🎨 Manual de Identidade Visual</h1>
+            <p class="subtitle">Guia Completo de Aplicação da Marca</p>
+            <div style="margin: 3rem 0; font-size: 4rem;">📚🔥</div>
+            <p class="school-name">COLÉGIO LEONEL AMORIM</p>
+            <p class="tagline">Educando para a Vida</p>
+        </section>
+
+        <!-- Color Palette Section -->
+        <section class="section">
+            <h2 class="section-title">🎯 Cores Oficiais da Marca</h2>
+            
+            <div class="color-grid">
+                <!-- Amarelo -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #FFC107;">🟡</div>
+                    <div class="color-info">
+                        <h3 class="color-name" style="color: #FFC107;">Amarelo Educação</h3>
+                        <div class="color-codes">
+                            <strong>HEX:</strong> #FFC107<br>
+                            <strong>RGB:</strong> 255, 193, 7<br>
+                            <strong>CMYK:</strong> 0, 24, 97, 0<br>
+                            <strong>Pantone:</strong> 1235 C
+                        </div>
+                        <p class="color-usage"><strong>Significado:</strong> Otimismo, inteligência, criatividade, alegria</p>
+                        <p class="color-usage"><strong>Uso:</strong> Títulos principais, CTAs, destaques</p>
+                    </div>
+                </div>
+
+                <!-- Azul -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #0066CC; color: white;">🔵</div>
+                    <div class="color-info">
+                        <h3 class="color-name" style="color: #0066CC;">Azul Confiança</h3>
+                        <div class="color-codes">
+                            <strong>HEX:</strong> #0066CC<br>
+                            <strong>RGB:</strong> 0, 102, 204<br>
+                            <strong>CMYK:</strong> 100, 50, 0, 20<br>
+                            <strong>Pantone:</strong> 2935 C
+                        </div>
+                        <p class="color-usage"><strong>Significado:</strong> Confiança, profissionalismo, conhecimento</p>
+                        <p class="color-usage"><strong>Uso:</strong> Textos principais, fundos institucionais</p>
+                    </div>
+                </div>
+
+                <!-- Bordô -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #8B1538; color: white;">🔴</div>
+                    <div class="color-info">
+                        <h3 class="color-name" style="color: #8B1538;">Bordô Tradição</h3>
+                        <div class="color-codes">
+                            <strong>HEX:</strong> #8B1538<br>
+                            <strong>RGB:</strong> 139, 21, 56<br>
+                            <strong>CMYK:</strong> 0, 85, 60, 45<br>
+                            <strong>Pantone:</strong> 7637 C
+                        </div>
+                        <p class="color-usage"><strong>Significado:</strong> Elegância, tradição, excelência</p>
+                        <p class="color-usage"><strong>Uso:</strong> Detalhes, bordas, destaques especiais</p>
+                    </div>
+                </div>
+
+                <!-- Laranja -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #FF6B35; color: white;">🟠</div>
+                    <div class="color-info">
+                        <h3 class="color-name" style="color: #FF6B35;">Laranja Energia</h3>
+                        <div class="color-codes">
+                            <strong>HEX:</strong> #FF6B35<br>
+                            <strong>RGB:</strong> 255, 107, 53<br>
+                            <strong>CMYK:</strong> 0, 58, 79, 0<br>
+                            <strong>Pantone:</strong> 2028 C
+                        </div>
+                        <p class="color-usage"><strong>Significado:</strong> Energia, entusiasmo, ação</p>
+                        <p class="color-usage"><strong>Uso:</strong> CTAs secundários, ícones, badges</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Hierarquia Visual</h3>
+            <div class="info-box">
+                <p><strong>1º NÍVEL:</strong> Amarelo #FFC107 - Destaque máximo (títulos, ofertas)</p>
+                <p><strong>2º NÍVEL:</strong> Azul #0066CC - Institucional (subtítulos, textos longos)</p>
+                <p><strong>3º NÍVEL:</strong> Bordô #8B1538 - Sofisticação (bordas, rodapés)</p>
+                <p><strong>4º NÍVEL:</strong> Laranja #FF6B35 - Ação (ícones, botões secundários)</p>
+            </div>
+        </section>
+
+        <!-- Rules Section -->
+        <section class="section">
+            <h2 class="section-title">📐 Regras de Combinação</h2>
+            
+            <div class="rules-grid">
+                <div class="rules-card do-card">
+                    <h4>✅ Combinações Aprovadas</h4>
+                    <ul>
+                        <li>Amarelo + Bordô (contraste forte)</li>
+                        <li>Azul + Amarelo (tradicional e alegre)</li>
+                        <li>Bordô + Branco (elegante)</li>
+                        <li>Azul + Branco (limpo e profissional)</li>
+                        <li>Amarelo + Azul + Bordô (marca completa)</li>
+                    </ul>
+                </div>
+
+                <div class="rules-card dont-card">
+                    <h4>❌ Combinações a Evitar</h4>
+                    <ul>
+                        <li>Bordô + Laranja (muito quente)</li>
+                        <li>Azul escuro + Bordô (pesado demais)</li>
+                        <li>Amarelo + Laranja (confuso)</li>
+                        <li>Múltiplas cores em fundos escuros</li>
+                        <li>Sobreposição de cores vibrantes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="section">
+            <h2 class="section-title">🔤 Tipografia Oficial</h2>
+            
+            <div class="typo-sample">
+                <p class="typo-title">Poppins Bold - Títulos Principais</p>
+                <p class="typo-subtitle">Poppins SemiBold - Subtítulos</p>
+                <p class="typo-body">Poppins Regular - Corpo de texto para leitura confortável e profissional.</p>
+                <p class="typo-italic">Poppins Italic - "Educando para a Vida" (slogan)</p>
+            </div>
+
+            <h3 class="section-subtitle">Especificações Técnicas</h3>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Títulos:</strong> Poppins Bold (700) - 24pt a 48pt - Bordô ou Azul</li>
+                <li><strong>Subtítulos:</strong> Poppins SemiBold (600) - 18pt a 24pt - Azul ou Cinza</li>
+                <li><strong>Corpo:</strong> Poppins Regular (400) - 12pt a 16pt - Cinza Escuro</li>
+                <li><strong>Destaques:</strong> Poppins Medium (500) - 14pt a 18pt - Amarelo ou Laranja</li>
+                <li><strong>Slogan:</strong> Poppins Italic (400) - 10pt a 14pt - Bordô</li>
+            </ul>
+        </section>
+
+        <!-- Applications Section -->
+        <section class="section">
+            <h2 class="section-title">📄 Aplicações em Materiais</h2>
+            
+            <div class="example-grid">
+                <!-- Papel Timbrado -->
+                <div class="example-card">
+                    <h3 class="example-title">📋 Papel Timbrado</h3>
+                    <ul class="example-specs">
+                        <li><strong>Tamanho:</strong> A4 (21cm x 29,7cm)</li>
+                        <li><strong>Papel:</strong> Offset 90g ou 120g</li>
+                        <li><strong>Margem:</strong> 1,5cm todos os lados</li>
+                        <li><strong>Logo:</strong> 4cm (canto superior esquerdo)</li>
+                        <li><strong>Cores:</strong> Azul (nome) + Bordô (slogan)</li>
+                    </ul>
+                </div>
+
+                <!-- Crachás -->
+                <div class="example-card">
+                    <h3 class="example-title">🪪 Crachás Escolares</h3>
+                    <ul class="example-specs">
+                        <li><strong>Tamanho:</strong> 8,5cm x 5,5cm</li>
+                        <li><strong>Material:</strong> PVC 0,76mm</li>
+                        <li><strong>Estudante:</strong> Fundo Bordô</li>
+                        <li><strong>Professor:</strong> Fundo Azul</li>
+                        <li><strong>Nome:</strong> Amarelo (destaque)</li>
+                    </ul>
+                </div>
+
+                <!-- Pastas -->
+                <div class="example-card">
+                    <h3 class="example-title">📁 Pasta Escolar</h3>
+                    <ul class="example-specs">
+                        <li><strong>Tamanho:</strong> A4 fechada</li>
+                        <li><strong>Material:</strong> Cartão 300g plastificado</li>
+                        <li><strong>Capa:</strong> Logo centralizado 8cm</li>
+                        <li><strong>Fundo:</strong> Gradiente Bordô → Azul</li>
+                        <li><strong>Detalhes:</strong> Linha Amarela</li>
+                    </ul>
+                </div>
+
+                <!-- Agendas -->
+                <div class="example-card">
+                    <h3 class="example-title">📓 Agenda Escolar</h3>
+                    <ul class="example-specs">
+                        <li><strong>Tamanho:</strong> A5 (14,8cm x 21cm)</li>
+                        <li><strong>Capa:</strong> Dura com UV localizado</li>
+                        <li><strong>Fundo:</strong> Gradiente diagonal</li>
+                        <li><strong>Logo:</strong> 5cm centralizado</li>
+                        <li><strong>Divisores:</strong> Linhas Amarelas</li>
+                    </ul>
+                </div>
+
+                <!-- Camisetas -->
+                <div class="example-card">
+                    <h3 class="example-title">👕 Camiseta Escolar</h3>
+                    <ul class="example-specs">
+                        <li><strong>Logo:</strong> 5cm x 5cm (peito esquerdo)</li>
+                        <li><strong>Técnica:</strong> Bordado ou silk</li>
+                        <li><strong>Cores:</strong> Branco, Bordô, Azul marinho</li>
+                        <li><strong>Costas:</strong> Nome + slogan centralizado</li>
+                        <li><strong>Ano:</strong> 2026</li>
+                    </ul>
+                </div>
+
+                <!-- Mochilas -->
+                <div class="example-card">
+                    <h3 class="example-title">🎒 Mochila Escolar</h3>
+                    <ul class="example-specs">
+                        <li><strong>Tamanho:</strong> 40cm x 30cm x 15cm</li>
+                        <li><strong>Logo:</strong> 10cm bordado (relevo 3D)</li>
+                        <li><strong>Corpo:</strong> Azul marinho</li>
+                        <li><strong>Alças:</strong> Bordô com acolchoado</li>
+                        <li><strong>Detalhes:</strong> Amarelo (zíperes)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cost Estimate Section -->
+        <section class="section">
+            <h2 class="section-title">💰 Estimativa de Custos</h2>
+            
+            <h3 class="section-subtitle">Materiais Básicos (1000 unidades)</h3>
+            <table class="cost-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantidade</th>
+                        <th>Custo Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Papel Timbrado</td>
+                        <td>1.000</td>
+                        <td>R$ 0,30</td>
+                        <td>R$ 300</td>
+                    </tr>
+                    <tr>
+                        <td>Envelopes Carta</td>
+                        <td>1.000</td>
+                        <td>R$ 0,25</td>
+                        <td>R$ 250</td>
+                    </tr>
+                    <tr>
+                        <td>Pastas</td>
+                        <td>500</td>
+                        <td>R$ 3,50</td>
+                        <td>R$ 1.750</td>
+                    </tr>
+                    <tr>
+                        <td>Crachás PVC</td>
+                        <td>500</td>
+                        <td>R$ 2,80</td>
+                        <td>R$ 1.400</td>
+                    </tr>
+                    <tr>
+                        <td>Placas de Porta</td>
+                        <td>30</td>
+                        <td>R$ 35,00</td>
+                        <td>R$ 1.050</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong>Subtotal Papelaria</strong></td>
+                        <td><strong>R$ 5.375</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <h3 class="section-subtitle" style="margin-top: 3rem;">Brindes Promocionais</h3>
+            <table class="cost-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantidade</th>
+                        <th>Custo Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Canetas</td>
+                        <td>1.000</td>
+                        <td>R$ 0,80</td>
+                        <td>R$ 800</td>
+                    </tr>
+                    <tr>
+                        <td>Agendas</td>
+                        <td>500</td>
+                        <td>R$ 12,00</td>
+                        <td>R$ 6.000</td>
+                    </tr>
+                    <tr>
+                        <td>Squeezes</td>
+                        <td>300</td>
+                        <td>R$ 15,00</td>
+                        <td>R$ 4.500</td>
+                    </tr>
+                    <tr>
+                        <td>Mochilas</td>
+                        <td>200</td>
+                        <td>R$ 45,00</td>
+                        <td>R$ 9.000</td>
+                    </tr>
+                    <tr>
+                        <td>Mousepads</td>
+                        <td>500</td>
+                        <td>R$ 8,00</td>
+                        <td>R$ 4.000</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong>Subtotal Brindes</strong></td>
+                        <td><strong>R$ 26.800</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <h3>💡 Investimento Total Inicial</h3>
+                <p style="font-size: 2rem; font-weight: 700; margin-top: 1rem;">R$ 32.175,00</p>
+                <p style="margin-top: 1rem;">Este valor cobre todos os materiais essenciais para identidade visual completa da campanha de matrículas.</p>
+            </div>
+        </section>
+
+        <!-- Production Priorities -->
+        <section class="section">
+            <h2 class="section-title">🎯 Prioridades de Produção</h2>
+            
+            <h3 class="section-subtitle" style="color: #f44336;">FASE 1 - URGENTE (Pré-Campanha)</h3>
+            <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                <li>✅ Papel timbrado (documentos oficiais)</li>
+                <li>✅ Crachás (segurança)</li>
+                <li>✅ Placas de porta (identificação)</li>
+                <li>✅ Envelopes básicos</li>
+            </ul>
+
+            <h3 class="section-subtitle" style="color: #ff9800;">FASE 2 - IMPORTANTE (Durante Campanha)</h3>
+            <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                <li>📦 Pastas escolares (material de vendas)</li>
+                <li>📦 Canetas promocionais (brindes em visitas)</li>
+                <li>📦 Agendas (presente para matriculados)</li>
+                <li>📦 Mousepads (brinde premium)</li>
+            </ul>
+
+            <h3 class="section-subtitle" style="color: #4caf50;">FASE 3 - DESEJÁVEL (Pós-Matrícula)</h3>
+            <ul style="margin-left: 2rem;">
+                <li>🎁 Mochilas (presente especial)</li>
+                <li>🎁 Squeezes (sustentabilidade)</li>
+                <li>🎁 Chaveiros (lembrança)</li>
+                <li>🎁 Camisetas (uniformização)</li>
+            </ul>
+        </section>
+
+        <!-- Checklist Section -->
+        <section class="section">
+            <h2 class="section-title">✅ Checklist de Produção</h2>
+            
+            <h3 class="section-subtitle">Antes de Enviar para Gráfica:</h3>
+            <div style="background: var(--branco); padding: 2rem; border-radius: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <ul style="list-style: none; margin-left: 0;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Logo em alta resolução (mínimo 300dpi)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Cores em CMYK (não RGB)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Fontes convertidas em curvas/outline</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Sangria de 3mm (materiais com corte)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Área de segurança respeitada</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Revisão ortográfica completa</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Aprovação da direção</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--cinza-claro);">☐ Prova digital conferida</li>
+                    <li style="padding: 0.5rem 0;">☐ Especificações de acabamento definidas</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Digital Adaptations -->
+        <section class="section">
+            <h2 class="section-title">📊 Adaptações para Web e Digital</h2>
+            
+            <h3 class="section-subtitle">Cores RGB (Digital)</h3>
+            <div class="color-codes" style="margin: 1rem 0;">
+                <strong>Amarelo:</strong> rgb(255, 193, 7) | #FFC107<br>
+                <strong>Azul:</strong> rgb(0, 102, 204) | #0066CC<br>
+                <strong>Bordô:</strong> rgb(139, 21, 56) | #8B1538<br>
+                <strong>Laranja:</strong> rgb(255, 107, 53) | #FF6B35
+            </div>
+
+            <h3 class="section-subtitle">Especificações de Logo Digital</h3>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Favicon:</strong> 16x16px (versão simplificada - Bordô + Amarelo)</li>
+                <li><strong>Instagram/Facebook:</strong> 500x500px (quadrado)</li>
+                <li><strong>Facebook Cover:</strong> 1200x630px (retangular)</li>
+                <li><strong>LinkedIn Banner:</strong> 1500x500px</li>
+                <li><strong>Assinatura Email:</strong> 600x150px (PNG transparente)</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer">
+            <h2>🎓 Conclusão</h2>
+            <p style="margin: 2rem 0; font-size: 1.2rem;">
+                Este manual de identidade visual garante <strong>consistência</strong>, 
+                <strong>profissionalismo</strong> e <strong>reconhecimento imediato</strong> da marca 
+                Colégio Leonel Amorim.
+            </p>
+            <div style="margin: 3rem 0;">
+                <p style="font-size: 1.8rem; font-weight: 700; color: var(--amarelo);">COLÉGIO LEONEL AMORIM</p>
+                <p style="font-style: italic; font-size: 1.3rem; margin-top: 0.5rem;">Educando para a Vida</p>
+            </div>
+            <hr style="margin: 2rem 0; border: 1px solid rgba(255,255,255,0.3);">
+            <p><strong>Documento criado:</strong> 6 de outubro de 2025</p>
+            <p><strong>Validade:</strong> Permanente (revisar anualmente)</p>
+            <p><strong>Responsável:</strong> Coordenação de Marketing</p>
+            <p style="margin-top: 2rem;">
+                <strong>Dúvidas sobre aplicação?</strong><br>
+                📧 marketing@colegioleonelamorim.com.br
+            </p>
+            <p style="margin-top: 3rem; font-size: 1.1rem;">
+                <em>Uma marca forte para uma educação forte</em> 💙💛🔴
+            </p>
+        </section>
+    </div>
+</body>
+</html>
